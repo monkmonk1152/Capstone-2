@@ -6,8 +6,14 @@ import store from './redux/store';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { auth0Config } from './config/auth0.config';
 
+ 
+
+
 function App() {
   return (
+
+
+
     <Auth0Provider
       domain={auth0Config.domain}
       clientId={auth0Config.clientId}
@@ -34,5 +40,7 @@ function App() {
     </Auth0Provider>
   );
 }
+
+
 
 export default App;
