@@ -7,7 +7,7 @@ function Home() {
      className='flex flex-row flex-shrink justify-center bg-cover bg-fixed '
      >
      <div className='flex place-items-center h-screen'>
-        <h3 className='p-7 bg-black text-white rounded bg-opacity-30  '> Welcome To Isla's Doggie Daycare!</h3>
+        <h3 className='p-7 bg-black text-yellow-400 rounded bg-opacity-30  '> Welcome To Isla's Doggie Daycare!</h3>
      </div>
     </div>
   )

@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { auth0Config } from './config/auth0.config';
+import { initializeApp } from 'firebase/app';
+import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
  
 
@@ -44,3 +46,5 @@ function App() {
 
 
 export default App;
+
+export const provider = new GoogleAuthProvider()

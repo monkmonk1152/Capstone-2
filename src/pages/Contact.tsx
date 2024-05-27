@@ -16,12 +16,12 @@ function Contact() {
          className='flex flex-row flex-shrink justify-center bg-cover bg-fixed '
          >
          <div className='flex place-items-center h-screen'>
-            <h3 className='bg-gray text-gray-200 text-xl rounded bg-opacity-10 p-3 mt-10 font-semibold mb-10  '>Contact Us!
+            <h3 className='bg-gray text-yellow-400 text-xl rounded bg-opacity-10 p-3 mt-10 font-semibold mb-10  '>Contact Us!
             
             </h3>
          </div>
          <div className='flex place-items-center h-screen'>
-            <h3 className='bg-gray text-gray-200 text-xl rounded bg-opacity-10 p-3 mt-10 font-semibold mb-10  '>Office-(470)-883-3334 Email-monkmonk2293@gmail.com
+            <h3 className='bg-gray text-yellow-400 text-xl rounded bg-opacity-10 p-3 mt-10 font-semibold mb-10  '>Office-(470)-883-3334 Email-monkmonk2293@gmail.com
             
             </h3>
          </div>

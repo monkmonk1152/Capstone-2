@@ -2,10 +2,21 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
 import { useAuth0 } from '@auth0/auth0-react';
+import { getAuth, signOut } from "firebase/auth";
+
 
 function Navbar() {
     const [isVisible, setIsVisible] = useState(false);
     useAuth0();
+
+  const logOut = () => {
+    const auth = getAuth();
+signOut(auth).then(() => {
+  // Sign-out successful.
+}).catch((_error) => {
+  // An error happened.
+});
+  }
 
   
 
@@ -16,6 +27,17 @@ function Navbar() {
     const clicked = () => {
         setIsVisible(false);
     };
+
+   
+
+    
+
+    
+
+
+    function signin(_event: any ): void {
+        throw new Error('Function not implemented.');
+    }
 
     return (
         <nav className='flex items-center justify-between flex-wrap bg-blue-700 p-6'>
@@ -64,6 +86,13 @@ function Navbar() {
                                 <Link to='/services' onClick={ clicked} className='flex place-items-center mt-4 lg:inline-block lg:mt-0 text-yellow-500 hover:text-white mr-4'>
                                     Services
                                 </Link>
+                            </div>
+                        </Button>
+                        <Button className='p-3 m-5 justify-center'>
+                            <div>
+                                <p onClick={ logOut} className='text-yellow-500 flex place-items-center mt-4 lg:inline-block lg:mt-0  hover:text-white mr-4'>
+                                    Log-Out
+                                </p>
                             </div>
                         </Button>
                         

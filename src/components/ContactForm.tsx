@@ -1,11 +1,11 @@
-import { useSubmit } from "react-router-dom"
+
 import Button from "./Button"
 import Input from "./Input"
 
 import { useForm } from 'react-hook-form'
 import { server_calls } from "../api/server"
 import { useDispatch, useStore } from "react-redux"
-import { chooseFirst, chooseLast, chooseEmail, chooseAddress, choosePhone } from "../redux/slices/RootSlice"
+import { chooseFirst, chooseLast, chooseEmail, chooseJobTitle, choosePhone } from "../redux/slices/RootSlice"
 
 interface ContactFormProps {
   id?: string[]
@@ -28,7 +28,7 @@ const ContactForm = ( props:ContactFormProps) => {
       dispatch(chooseLast(data.last));
       dispatch(chooseEmail(data.email));
       dispatch(choosePhone(data.phone_number));
-      dispatch(chooseAddress(data.address));
+      dispatch(chooseJobTitle(data.job));
 
       server_calls.create(store.getState())
     }
@@ -54,8 +54,8 @@ const ContactForm = ( props:ContactFormProps) => {
           <Input {...register('phone_number')} name='phone_number' placeholder="Phone Number" />
         </div>
         <div>
-          <label htmlFor="address">Address</label>
-          <Input {...register('address')} name='address' placeholder="Address" />
+          <label htmlFor="job_title">Job Title</label>
+          <Input {...register('job_title')} name='job_title' placeholder="Job Title" />
         </div>
         <div className="flex p-1">
           <Button className="flex justify-start m-3 bg-slate-300 p-2 rounded hover:bg-slate-800 text-white"
