@@ -1,18 +1,12 @@
-
-
-
-
-const token = 'c595c89d2997cd95852ed7df2eeb70327a97d99488f7b330'
-
 export const server_calls = {
     get: async () => { 
-        const response = await fetch(`https://hotline-bling.glitch.me/api/contacts`,
+        const response = await fetch(`https://capstone-ce99d-default-rtdb.firebaseio.com/contacts`,
         {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'x-access-token': `Bearer ${token}`
+                
             }
 
         });
@@ -25,13 +19,13 @@ export const server_calls = {
     },
 
     create: async (data: any = {}) => {
-        const response = await fetch(`https://hotline-bling.glitch.me/api/contacts`,
+        const response = await fetch(`https://capstone-ce99d-default-rtdb.firebaseio.com/contacts`,
         {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'x-access-token': `Bearer ${token}`
+                
             },
             body: JSON.stringify(data)
 
@@ -44,14 +38,14 @@ export const server_calls = {
         return await response.json()
     },
 
-    update: async (id: string, data:any = {}) => {
-        const response = await fetch(`https://hotline-bling.glitch.me/api/contacts/${id}`,
+    update: async (name: string, data:any = {}) => {
+        const response = await fetch(`https://capstone-ce99d-default-rtdb.firebaseio.com/contacts/${name}`,
         {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'x-access-token': `Bearer ${token}`
+            
             },
             body: JSON.stringify(data)
 
@@ -65,13 +59,13 @@ export const server_calls = {
     },
 
     delete: async (id: string) => {
-        const response = await fetch(`https://hotline-bling.glitch.me/api/contacts/${id}`,
+        const response = await fetch(`https://capstone-ce99d-default-rtdb.firebaseio.com/contacts/${id}`,
         {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'x-access-token': `Bearer ${token}`
+                
             },
 
         })
@@ -83,5 +77,3 @@ export const server_calls = {
         return;
     },
 }
-
-

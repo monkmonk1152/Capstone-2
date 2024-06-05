@@ -2,7 +2,7 @@
 import ContactForm from './ContactForm'
 
 type Props = {
-    id?: string[],
+    name?: string[],
     open: boolean;
     onClose: () => void;
 }
@@ -12,12 +12,12 @@ const Modal = ( props: Props ) => {
     return (
         <div 
             onClick={ props.onClose } 
-            className='fixed w-full h-full flex overflow-auto z-1 
+            className='w-full h-full flex overflow-auto z-1 
             justify-center align-middle bg-gray-300 bg-opacity-25'
         
         >
             <div
-                className='max-w-600px w-2/5 fixed flex z-1 bg-white shadow-xl rounded'
+                className='w-2/5    flex z-1 bg-white shadow-xl rounded'
                 onClick={(e) => {
                     e.stopPropagation()
                 }}
@@ -30,7 +30,7 @@ const Modal = ( props: Props ) => {
                         </p>
                     </div>
                     <div className="flex flex-col items-center text-center mt-3 p-2">
-                        <ContactForm id={props.id } />
+                        <ContactForm name={props.name } />
                     </div>
                 </div>
             </div>

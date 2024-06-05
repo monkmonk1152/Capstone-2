@@ -5,30 +5,32 @@ import Input from "./Input"
 import { useForm } from 'react-hook-form'
 import { server_calls } from "../api/server"
 import { useDispatch, useStore } from "react-redux"
-import { chooseFirst, chooseLast, chooseEmail, chooseJobTitle, choosePhone } from "../redux/slices/RootSlice"
+import { chooseName, chooseEmail, chooseJobTitle, choosePhone, chooseBreed, chooseDogName } from "../redux/slices/RootSlice"
 
 interface ContactFormProps {
-  id?: string[]
+  name: any
+  //id?: string[]
 }
 
-const ContactForm = ( props:ContactFormProps) => {
+function ContactForm(props: ContactFormProps) {
   const { register, handleSubmit } = useForm({})
-  const dispatch = useDispatch();
-  const store = useStore();
+  const dispatch = useDispatch()
+  const store = useStore()
 
   const onSubmit = (data: any, _event: any) => {
-    console.log(`ID: ${typeof props.id}`);
-    console.log(props.id)
+    console.log(`Name: ${typeof props.name}`)
+    console.log(props.name)
     console.log(data)
-    if (props.id && props.id.length > 0) {
-      server_calls.update(props.id[0], data)
-      console.log(`Updated: ${ data.first } ${ props.id }`)
+    if (props.name && props.name.length > 0) {
+      server_calls.update(props.name[0], data)
+      console.log(`Updated: ${data.first} ${props.name}`)
     } else {
-      dispatch(chooseFirst(data.first));
-      dispatch(chooseLast(data.last));
-      dispatch(chooseEmail(data.email));
-      dispatch(choosePhone(data.phone_number));
-      dispatch(chooseJobTitle(data.job));
+      dispatch(chooseName(data.name))
+      dispatch(chooseEmail(data.email))
+      dispatch(choosePhone(data.phone_number))
+      dispatch(chooseJobTitle(data.job_title))
+      dispatch(chooseBreed(data.breed))
+      dispatch(chooseDogName(data.dog_name))
 
       server_calls.create(store.getState())
     }
@@ -39,11 +41,7 @@ const ContactForm = ( props:ContactFormProps) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="name">Contact Name</label>
-          <Input {...register('first')} name='first' placeholder="First" />
-        </div>
-        <div>
-          <label htmlFor="name">Contact Name</label>
-          <Input {...register('last')} name='last' placeholder="Last" />
+          <Input {...register('name')} name='name' placeholder="Name" />
         </div>
         <div>
           <label htmlFor="email">Email</label>
@@ -57,8 +55,16 @@ const ContactForm = ( props:ContactFormProps) => {
           <label htmlFor="job_title">Job Title</label>
           <Input {...register('job_title')} name='job_title' placeholder="Job Title" />
         </div>
+        <div>
+          <label htmlFor="breed"></label>Breed
+          <Input {...register('breed')} name='breed' placeholder="Breed" />
+        </div>
+        <div>
+          <label htmlFor="dog_name">Dog name</label>
+          <Input {...register('dog_name')} name='dog_name' placeholder="Dog_Name" />
+        </div>
         <div className="flex p-1">
-          <Button className="flex justify-start m-3 bg-slate-300 p-2 rounded hover:bg-slate-800 text-white"
+          <Button className="flex justify-start m-3  bg-slate-300 p-2 rounded hover:bg-slate-800 text-white"
           >
             Submit
           </Button>
@@ -68,4 +74,4 @@ const ContactForm = ( props:ContactFormProps) => {
   )
 }
 
-export default ContactForm      
+export default ContactForm   

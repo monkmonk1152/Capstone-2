@@ -1,4 +1,4 @@
-import Background from '../assets/images/Night-Dog.jpg';
+import Background from '../assets/images/zbynek-burival-1kGvoC9g2DY-unsplash.jpg';
 
 function About() {
   return (
@@ -9,7 +9,7 @@ function About() {
       >
         <div className='flex place-items-center h-screen'>
           
-          <h3 className='bg-gray text-yellow-500 text-xl rounded bg-opacity-10 p-3 font-semibold'>
+          <h3 className='bg-black text-yellow-500 text-xl rounded bg-opacity-40 p-3 font-semibold'>
             Christopher, the compassionate owner of a bustling dog daycare, pours his heart and soul into providing top-tier care for beloved canine companions.
              With a deep love for animals and an unwavering dedication to his craft, Chris embodies kindness, diligence, and a genuine affection for every furry friend
               that crosses his path.

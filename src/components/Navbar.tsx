@@ -35,9 +35,7 @@ signOut(auth).then(() => {
     
 
 
-    function signin(_event: any ): void {
-        throw new Error('Function not implemented.');
-    }
+   
 
     return (
         <nav className='flex items-center justify-between flex-wrap bg-blue-700 p-6'>
